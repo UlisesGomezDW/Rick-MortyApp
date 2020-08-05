@@ -1,0 +1,51 @@
+@import './../../../variables.scss';
+.card{
+    width: 44vw;
+    height: 24vh;
+    display: flex;
+    box-shadow: $shadow;
+    margin: 0 auto 3vh auto;
+    img{
+      width: 30%;
+    }
+    .card-information{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .card-head{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 85%;
+            img{
+                width: 1.5vw;
+                margin-bottom: 1vh;
+            }
+            div{
+                display: flex;
+                align-items: center;
+                .cube-figure{
+                    width: 0.7vw;
+                    height: 0.7vw;
+                }
+                span{
+                    margin-left: 0.5vw;
+                    font-size: 2vh;
+                }
+            }
+        }
+        .card-body{
+            width: 90%;
+            p{
+                margin: 1.5vh 0 0 2vw;
+                font-size: 1.8vh;
+            }
+            p:nth-child(1){
+                margin: 0.5vh 0 2vh 2vw;
+                font-size: 2.8vh;
+            }
+        }
+    }
+  }

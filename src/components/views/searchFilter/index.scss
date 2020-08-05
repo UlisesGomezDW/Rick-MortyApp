@@ -1,0 +1,41 @@
+.search-container{
+    width: 100vw;
+    height: 86vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    .btn-primary{
+        width: 17vw;
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 768px){
+    .search-container{
+        height: 92vh;
+        .select{
+            width: 90vw;
+            height: 6vh;
+            padding: 0 10vw 0 10vw;
+            margin-bottom: 5vh;
+            img{
+                width: 6vw;
+            }
+            .options-container{
+                width: 90vw;
+                .option{
+                    padding-left: 10vw;
+                }
+            }
+            &:nth-child(4){
+                margin-bottom: 35vh;
+            }
+        }
+        .btn-primary{
+            width: 40vw;
+            font-size: 16px;
+            height: 6vh;
+        }
+    }
+}

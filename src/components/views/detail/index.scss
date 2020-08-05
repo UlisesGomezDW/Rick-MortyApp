@@ -1,0 +1,113 @@
+.detail-container{
+    width: 100vw;
+    height: 86vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.detail-head, .detail-footer{
+    display: flex;
+    align-items: center;
+    width: 85vw;
+    height: 15vh;
+}
+.detail-head{
+    img{
+        margin-right: auto;
+        width: 4vw;
+    }
+}
+.detail-body{
+    height: 56vh;
+    width: 85vw;
+    display: flex;
+    img{
+        height: 100%;
+        width: 45%;
+    }
+    .detail-info{
+        width: 50%;
+        .detail-head-info{
+            display: flex;
+            align-items: center;
+            span{
+                margin-left: 1vw;
+                font-size: 2.5vh;
+                text-transform: uppercase;
+            }
+        }
+        .detail-body-info{
+            p{
+                margin: 1.5vh 0 0 2vw;
+                font-size: 2.5vh;
+            }
+            p:nth-child(1){
+                font-weight: 900;
+                margin-bottom: 1vh;
+                font-size: 3.5vh;
+            }
+        }
+    }
+}
+.detail-footer{
+    img{
+        margin-left: auto;
+        margin-right: 5%;
+        width: 3vw;
+    }
+}
+@media screen and (max-width: 768px){
+    .detail-container{
+        height: 92vh;
+    }
+    .detail-head{
+        display: none;
+    }
+    .detail-body{
+        width: 100vw;
+        height: 82vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+        .detail-info{
+            width: 100%;
+            height: 40%;
+            padding: 4vh 0 0 6vw;
+            box-sizing: border-box;
+            .detail-head-info{
+                .cube-figure{
+                    width: 2vw;
+                    height: 2vw;
+                }
+                span{
+                    text-transform: none;
+                    font-size: 2vh;
+                    margin-left: 2vw;
+                }
+            }
+            .detail-body-info{
+                p{
+                    margin: 3vh 0 0 2vw;
+                    font-size: 2vh;
+                }
+                p:nth-child(1){
+                    font-weight: 900;
+                    margin: 2vh 0 1vh 2vw;
+                    font-size: 3.5vh;
+                }
+            }
+        }
+        img{
+            width: 100%;
+            height: 60%;
+        }
+    }
+    .detail-footer{
+        height: 10vh;
+        width: 100vw;
+        img{
+            width: 10vw;
+        }
+    }
+}

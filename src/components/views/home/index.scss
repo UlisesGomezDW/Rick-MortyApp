@@ -1,0 +1,96 @@
+.home-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 13vh;
+    box-shadow: 0 2px 8px 0 #ccc;
+    .btn-primary{
+        img{
+            display: none;
+        }
+    }
+}
+.home-body-tittle{
+    margin: 4vh auto 6vh 4.5vw;
+    font-size: 2.5vh;
+    font-weight: 900;
+}
+.home-cards{
+    width: 94vw;
+    display: inline-grid;
+    grid-template-columns: 50% 50%;
+}
+@media screen and (max-width: 768px){
+    .home-container{
+        width: 90%;
+        height: 16vh;
+        flex-direction: column;
+        box-shadow: 0 2px 2px -2px #ccc;
+        .search{
+            width: 90vw;
+            height: 5.5vh;
+            padding-left: 6vw;
+            font-size: 2vh;
+        }
+        .btn-primary{
+            width: 35vw;
+            height: 5.5vh;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            img{
+                display: flex;
+                width: 5vw;
+                margin-right: 2vw;
+            }
+        }
+    }
+    .home-body-tittle{
+        margin: 2vh auto 2vh 4.5vw;
+        font-size: 2vh;
+    }
+    .home-cards{
+        grid-template-columns: none;
+        .card{
+            width: 90vw;
+            height: 15vh;
+            margin-bottom: 2vh;
+            img{
+                width: 35%;
+            }
+            .card-information{
+                width: 65%;
+                .card-head{
+                    width: 90%;
+                    .cube-figure{
+                        width: 2vw;
+                        height: 2vw;
+                    }
+                    span{
+                        margin-left: 2vw;
+                        font-size: 1.5vh;
+                    }
+                    img{
+                        width: 5vw;
+                        margin: 0;
+                    }
+                }
+                .card-body{
+                    p{
+                        margin: 1vh 0 0 0;
+                        font-size: 1.5vh;
+                    }
+                    p:nth-child(1){
+                        margin: 0.5vh 0 1vh 0;
+                        font-size: 2vh;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,19 @@
+@import './../../../variables.scss';
+.btn-primary{
+    background-color: $primary;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    text-align: center;
+    border-radius: 64px;
+    color: white;
+    height: 6.5vh;
+    width: 12vw;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .19px;
+    cursor: pointer;
+    &:focus{
+      outline-color: transparent;
+      outline-style: none;
+    }
+  }

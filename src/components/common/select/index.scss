@@ -1,0 +1,95 @@
+@import './../../../variables.scss';
+.select{
+    position: relative;
+    width: 28vw;
+    height: 6.5vh;
+    font-size: 2vh;
+    box-shadow: $shadow;
+    border-radius: 64px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3vw 0 3vw;
+    margin-bottom: 6vh;
+    &:nth-child(4){
+        margin-bottom: 10vh;
+    }
+    &.active{
+        border-radius: 64px 64px 0 0;
+    }
+    &.not-active{
+        border-radius: 64px;
+    }
+    .space{
+        font-size: 1.2em;
+        margin: 0;
+        transition: ease-in-out 0.15s;
+    }
+    img{
+        &.view-button{
+            width: 2vw;
+            transform: rotate(-90deg);
+            transition: ease-in-out 0.15s;
+            &.active{
+                transform: rotate(-90deg);
+            }
+            &.not-active{
+                transform: rotate(90deg);
+            }
+        }
+    }
+    .options-container{
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        box-shadow: $shadow;
+        max-height: 200px;
+        width: 28vw;
+        background-color: $white;
+        z-index: 10;
+        border-bottom-left-radius: 64px;
+        border-bottom-right-radius: 64px;
+        transition: ease-in-out 0.15s;
+        &.active{
+            visibility: visible;
+            animation: open 0.3s;
+            opacity: 1;
+            @keyframes open {
+                from{
+                    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+                }to{
+                    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                }
+            }
+        }
+        &.not-active{
+            visibility: hidden;
+            animation: close 0.3s;
+            opacity: 0;
+            @keyframes close {
+                from{
+                    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                    opacity: 1;
+                }to{
+                    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+                    opacity: 1;
+                }
+            }
+        }
+        .option{
+            margin: 0;
+            height: 5.5vh;
+            color: #000;
+            font-size: 1.2em;
+            width: 100%;
+            transition: ease-in-out 0.15s;
+            padding-left: 3vw;
+            box-sizing: border-box;
+            &:active{
+                background-color: $primary;
+                color: $white;
+            }
+        }
+    }
+}
