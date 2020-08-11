@@ -21,7 +21,7 @@ const App = ({isOffline}) => {
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/filter/" component={SearchFilter}/>
-        <Route  path="/detail/:id/" component={Detail}/>
+        <Route  path="/detail/:idCharacter/" component={Detail}/>
       </Switch>
     </div>
   )

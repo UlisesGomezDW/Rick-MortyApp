@@ -5,16 +5,20 @@ let initialState = {
     fetching: false,
     data: [],
     options: [],
+    filters: {}
 }
 
 
 let URL = 'https://rickandmortyapi.com/api/character'
+
 let GET_CHARACTERS = 'GET_CHARACTERS'
 let GET_CHARACTERS_SUCCESS = 'GET_CHARACTERS_SUCCESS'
 let GET_CHARACTERS_ERROR = 'GET_CHARACTERS_ERROR'
 let GET_OPTIONS = 'GET_OPTIONS'
 let ADD_FAVORITE = 'ADD_FAVORITE'
 let MODE_OFFLINE = 'MODE_OFFLINE'
+let ADD_FILTERS = 'ADD_FILTERS'
+let REMOVE_FILTERS = 'REMOVE_FILTERS'
 
 //Reducer
 export default function reducer(state = initialState, action) {
@@ -31,6 +35,10 @@ export default function reducer(state = initialState, action) {
         return { ...state, data: action.payload }
       case MODE_OFFLINE:
         return { ...state, data: action.payload }
+      case ADD_FILTERS:
+        return { ...state, filters: action.payload }
+      case REMOVE_FILTERS:
+        return { ...state, filters: {} }
       default:
         return state
     }
@@ -58,8 +66,9 @@ export let getCharactersAction = () => (dispatch, getState) => {
 
 //Función auxiliar
 let getPropsCharacters = (dispatch, data) => {
-  let category = ['Especie', 'Estatus', 'Tipo', 'Género']
-  let options = getOptions(data, category)
+  let text = ['Especie', 'Estatus', 'Tipo', 'Género']
+  let category = ['specie', 'status', 'type', 'gender']
+  let options = getOptions(data, text, category)
   dispatch({
     type: GET_OPTIONS,
     payload: options

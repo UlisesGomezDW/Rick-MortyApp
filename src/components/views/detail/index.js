@@ -1,5 +1,5 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom'
+import {Redirect, useLocation} from 'react-router-dom'
 import back from './../../../assets/icons/back.svg'
 import {Cube, Heart} from './../../common/figures'
 import {toast} from 'react-toastify'
@@ -8,10 +8,10 @@ import {connect} from 'react-redux'
 import {saveFavorites} from './../../../utils'
 import './index.scss'
 
-const Detail = (props ) => {
-  if(props.location.state !== undefined){
-    let {addFavorite, Characters} = props
-    let {id, gender, specie, status, type, name, image, favorite} = props.location.state
+const Detail = ({addFavorite, Characters}) => {
+  const location = useLocation()
+  if(location.state !== undefined){
+    let {id, gender, specie, status, type, name, image, favorite} = location.state
     return(
       <div className="detail-container animate__animated animate__flash">
         <section className="detail-head">
@@ -26,7 +26,7 @@ const Detail = (props ) => {
             <section className="detail-body-info">
               <p>{name}</p>
               <p>Estatus: {status}</p>
-              <p>Tipo: {type === '' ? 'No definido' : type}</p>
+              <p>Tipo: {type}</p>
               <p>Género: {gender}</p>
             </section>
           </div>
@@ -43,10 +43,10 @@ const Detail = (props ) => {
   }
 }
 const mapState = state => ({Characters: state.data})
+
 const mapDispatch = dispatch => ({
   addFavorite(i, Characters){
     Characters[i].favorite = !Characters[i].favorite
-    console.log(Characters)
     dispatch({
       type: 'ADD_FAVORITE',
       payload: Characters

@@ -1,4 +1,34 @@
-//Función encarga de devolver un arreglo de personajes favoritos
+import {toast} from 'react-toastify'
+
+//Función encarga de devolver un arreglo filtrado de una búsqueda
+export function filterCharacters(characters, filters, search){
+  if(search.length === 0){
+      return characters
+  }
+  else {
+    if(Object.keys(filters).length > 0){
+        let withFilter = characters.filter(({name}) => name.toLowerCase().indexOf(search.toLowerCase()) > -1)
+        let result = []
+        withFilter.forEach(character=>{
+          let name = character.name
+          if(JSON.stringify(character)===JSON.stringify(filters)){
+            delete character.name
+            character.name = name
+            result.push(character)
+          }else{
+            toast.error("Personaje no encontrado.")
+          }
+        })
+        return result
+      }
+      else {
+        return characters.filter(({name}) => name.toLowerCase().indexOf(search.toLowerCase()) > -1)
+      }
+  }
+}
+
+
+//Función encarga de guardar en el Storage un arreglo de personajes favoritos
 export function saveFavorites(array){
     let favorites = []
     array.forEach(item=>{
@@ -26,7 +56,7 @@ export function cleanArrays(array){
     return arrayNoRepeatGrup
 }
 // Función personalizada para traer las opciones
-export function getOptions(data, categories){
+export function getOptions(data, texts, category){
     let firstProp = []
     let secondProp = []
     let threeProp = []
@@ -41,8 +71,8 @@ export function getOptions(data, categories){
     })
     contentProps.push(firstProp, secondProp, threeProp, fourProp)
     let options = cleanArrays(contentProps)
-    categories.forEach((category, i)=>{
-        containerGral.push({category, options: options[i]})
+    texts.forEach((text, i)=>{
+        containerGral.push({text, options: options[i], category: category[i]})
     })
     return containerGral
 }

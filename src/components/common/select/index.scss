@@ -77,6 +77,13 @@
                 }
             }
         }
+        &::-webkit-scrollbar {
+            width: 0.5em;
+            background-color: $white;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $primary;
+        }
         .option{
             margin: 0;
             height: 5.5vh;
